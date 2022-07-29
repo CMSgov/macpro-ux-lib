@@ -1,11 +1,11 @@
 import React from "react";
 import { iconChoices } from "./IconChoices";
 
-type IconChoices = typeof iconChoices[number];
+export type IconChoice = typeof iconChoices[number];
 type IntrinsicElements = JSX.IntrinsicElements["svg"];
 
 interface Props extends IntrinsicElements {
-  name: IconChoices;
+  name: IconChoice;
   iconSize?: IconSize;
   ariaHidden?: boolean;
   role?: string;
@@ -39,6 +39,7 @@ export const Icon: React.FC<Props> = ({
       className={`usa-icon--size-${iconSize}`}
       aria-hidden={ariaHidden}
       role={role}
+      fill="currentColor"
     >
       <use href={`sprite.svg#${name}`}></use>
     </svg>
